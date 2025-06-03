@@ -2,12 +2,12 @@
 name = "ssh-transfer"
 version = "0.3.0"
 authors = [
-  "Valentin NOEL <valentin.noel@media-io.com>",
-  "Marc-Antoine Arnaud <maarnaud@media-io.com>",
+  "Valentin NOEL <valentin.noel@luminvent.com>",
+  "Marc-Antoine Arnaud <marca-antoine.arnaud@luminvent.com>",
 ]
-description = "License to transfer file vie SFTP protocol"
+description = "License to transfer file via SFTP protocol"
 license = "MIT"
-edition = "2018"
+edition = "2024"
 
 
 [dependencies]

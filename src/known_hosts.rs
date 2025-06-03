@@ -89,7 +89,10 @@ impl KnownHosts {
           )));
         }
 
-        warn!("No matching host key found for {}:{} in known hosts, but trust host anyway. Fingerprint: {}", hostname, port, host_fingerprint);
+        warn!(
+          "No matching host key found for {}:{} in known hosts, but trust host anyway. Fingerprint: {}",
+          hostname, port, host_fingerprint
+        );
         self.known_hosts.add(
           hostname,
           host_key,

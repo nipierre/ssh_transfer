@@ -73,8 +73,8 @@ pub fn test_configuration() {
     configuration.authentication
   );
   assert_eq!(10000, configuration.timeout);
-  assert_eq!(true, configuration.compress);
-  assert_eq!(false, configuration.trust_host);
+  assert!(configuration.compress);
+  assert!(!configuration.trust_host);
 
   let configuration = configuration
     .with_port(12345)
@@ -91,6 +91,6 @@ pub fn test_configuration() {
     configuration.authentication
   );
   assert_eq!(54321, configuration.timeout);
-  assert_eq!(false, configuration.compress);
-  assert_eq!(true, configuration.trust_host);
+  assert!(!configuration.compress);
+  assert!(configuration.trust_host);
 }

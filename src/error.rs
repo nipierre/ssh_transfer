@@ -59,23 +59,16 @@ impl From<regex::Error> for Error {
 
 impl From<Error> for std::io::Error {
   fn from(error: Error) -> Self {
-    use std::io::ErrorKind;
     match error {
-      Error::Base64DecodingError(error) => {
-        std::io::Error::new(ErrorKind::Other, format!("Base64: {}", error))
-      }
+      Error::Base64DecodingError(error) => std::io::Error::other(format!("Base64: {}", error)),
       Error::IoError(error) => error,
-      Error::RegexError(error) => {
-        std::io::Error::new(ErrorKind::Other, format!("Regex: {}", error))
-      }
-      Error::SshError(error) => std::io::Error::new(ErrorKind::Other, format!("SSH: {}", error)),
-      Error::AuthenticationError(error) => {
-        std::io::Error::new(ErrorKind::Other, format!("Auth: {}", error))
-      }
+      Error::RegexError(error) => std::io::Error::other(format!("Regex: {}", error)),
+      Error::SshError(error) => std::io::Error::other(format!("SSH: {}", error)),
+      Error::AuthenticationError(error) => std::io::Error::other(format!("Auth: {}", error)),
       Error::KnownHostCheckError(error) | Error::KnownHostParsingError(error) => {
-        std::io::Error::new(ErrorKind::Other, format!("Host: {}", error))
+        std::io::Error::other(format!("Host: {}", error))
       }
-      Error::SftpError(error) => std::io::Error::new(ErrorKind::Other, format!("SFTP: {}", error)),
+      Error::SftpError(error) => std::io::Error::other(format!("SFTP: {}", error)),
     }
   }
 }

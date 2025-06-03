@@ -45,7 +45,7 @@ impl TryFrom<&str> for KnownHost {
       "ecdsa-sha2-nistp256" => KnownHostKeyFormat::Ecdsa256,
       "ecdsa-sha2-nistp384" => KnownHostKeyFormat::Ecdsa384,
       "ecdsa-sha2-nistp521" => KnownHostKeyFormat::Ecdsa521,
-      "ssh-ed25519" => KnownHostKeyFormat::Ed255219,
+      "ssh-ed25519" => KnownHostKeyFormat::Ed25519,
       _ => KnownHostKeyFormat::Unknown,
     };
 
@@ -63,7 +63,7 @@ pub fn test_known_host() {
   let known_host = KnownHost::try_from("localhost ssh-ed25519 SGVsbG8gV29ybGQh").unwrap();
   assert_eq!("localhost", &known_host.hostname);
   assert_eq!(
-    format!("{:?}", KnownHostKeyFormat::Ed255219),
+    format!("{:?}", KnownHostKeyFormat::Ed25519),
     format!("{:?}", known_host.key_format)
   );
   assert_eq!("Hello World!".as_bytes().to_vec(), known_host.fingerprint);

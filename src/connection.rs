@@ -2,7 +2,7 @@ use crate::configuration::Configuration;
 use crate::error::Result;
 use crate::known_host::KnownHost;
 use crate::known_hosts::KnownHosts;
-use crate::sftp::{list, SftpEntry, SftpReader, SftpWriter};
+use crate::sftp::{SftpEntry, SftpReader, SftpWriter, list};
 use ssh2::{HostKeyType, Session};
 use std::net::TcpStream;
 
