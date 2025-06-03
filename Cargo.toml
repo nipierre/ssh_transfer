@@ -6,6 +6,7 @@ authors = [
   "Marc-Antoine Arnaud <marca-antoine.arnaud@luminvent.com>",
 ]
 description = "License to transfer file via SFTP protocol"
+repository = "https://github.com/luminvent/ssh_transfer"
 license = "MIT"
 edition = "2024"
 
